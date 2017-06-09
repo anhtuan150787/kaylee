@@ -1,0 +1,62 @@
+<div class="page-header">
+    <div class="pull-left">
+        <h1>Menu</h1>
+    </div>
+</div>
+
+<div class="pull-right" style="margin-bottom: 10px">
+    <input type="button"
+           onclick="location.href='<?php echo $this->url('admin/navigation', array('action' => 'add')); ?>'"
+           class="btn btn-primary" value="Thêm">
+</div>
+
+<div class="col-lg-12">
+<?php echo $this->flashMessenger()->renderCurrent('default', array('alert', 'alert-success')); ?>
+</div>
+
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-nomargin table-striped table-colored-header">
+                    <thead>
+                    <tr>
+                        <th>Menu</th>
+                        <th>Url</th>
+                        <th>Thứ tự</th>
+                        <th>Trạng thái</th>
+                        <th>Chức năng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($records as $record) { ?>
+                        <tr>
+                            <td><?php echo str_repeat('__', $record['navigation_level']) . ' ' . $record['navigation_name']; ?></td>
+                            <td><?php echo ($record['navigation_url_select'] != '') ? $this->escapeHtml($record['navigation_url_select']) : $this->escapeHtml($record['navigation_url']); ?></></td>
+                            <td><?php echo $record['navigation_position']; ?></td>
+                            <td><?php echo $status[$record['navigation_status']]; ?></td>
+                            <td>
+                                <a href="<?php echo $this->url('admin/navigation', array('action' => 'edit'), array('query' => array('id' => $record['navigation_id']))); ?>">
+                                    <i class="icon-edit"></i>
+                                </a>
+                                <a onclick="return confirmDelete()"
+                                   href="<?php echo $this->url('admin/navigation', array('action' => 'delete'), array('query' => array('id' => $record['navigation_id']))); ?>">
+                                    <i class="icon-remove"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete() {
+        if (!confirm('Bạn có chắc chắn muốn xóa?')) {
+            return false;
+        }
+    }
+</script>

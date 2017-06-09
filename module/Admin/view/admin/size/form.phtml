@@ -1,0 +1,58 @@
+<div class="page-header">
+    <div class="pull-left">
+        <h1>Kích thước</h1>
+    </div>
+</div>
+
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box box-bordered box-color">
+            <div class="box-title">
+                <h3><i class="icon-edit"></i> <?php echo $actionTitle;?></h3>
+            </div>
+            <div class="box-content nopadding">
+                <?php
+                $form->setAttributes(['action' => '', 'class' => 'form-horizontal form-bordered', 'id' => 'frm']);
+                $form->prepare();
+                echo $this->form()->openTag($form);
+                ?>
+                    <div class="control-group">
+                        <?php echo $this->formLabel($form->get('size_name')); ?>
+                        <div class="controls">
+                            <?php echo $this->formElement($form->get('size_name')); ?>
+                            <?php echo $this->formElementErrors($form->get('size_name'), array('class' => 'error-message')); ?>
+                        </div>
+                    </div>
+
+
+                <div class="control-group">
+                    <?php echo $this->formLabel($form->get('size_status')); ?>
+                    <div class="controls">
+                        <?php echo $this->formElement($form->get('size_status')); ?>
+                        <?php echo $this->formElementErrors($form->get('size_status'), array('class' => 'error-message')); ?>
+                    </div>
+                </div>
+
+                    <div class="form-actions">
+                        <?php echo $this->formSubmit($form->get('submit')); ?>
+                        <?php echo $this->formHidden($form->get('csrf')); ?>
+                    </div>
+                <?php echo $this->form()->closeTag(); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#frm").validate({
+            rules: {
+                size_name: 'required',
+            },
+            messages: {
+                size_name: 'Vui lòng nhập thông tin',
+            }
+        });
+    });
+</script>

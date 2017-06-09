@@ -1,0 +1,45 @@
+<div class="desktop-12 mobile-3" id="nav-border"></div>
+
+
+<div class="index-sections">
+    <?php
+    echo $template[3]['template_content'];
+    ?>
+
+    <div id="shopify-section-1480441270710" class="shopify-section"><div class="index-section" data-section-id="1480441270710" data-section-type="feat-image-section">
+            <div>
+                <div class="desktop-12 mobile-3">
+                    <a href="<?php echo $this->serverUrl() . '/' . $template[3]['template_url'];?>">
+                        <img src="<?php echo $this->serverUrl() . '/public/thumbs/timthumb.php?src=' . $this->basePath() . '/public/pictures/' . $template[3]['template_picture']; ?>&w=1200">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="shopify-section-1480440139914" class="shopify-section">
+        <div class="index-section" data-section-id="1480440139914" data-section-type="product-section">
+            <div id="homepage-products">
+                <div id="product-loop">
+                    <?php echo $this->partial('home/partial/product-item', array('products' => $homeProductNew)); ?>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="shopify-section-1480441281926" class="shopify-section">
+        <div class="index-section" data-section-id="1480441281926" data-section-type="featured-blog-section">
+            <div id="homepage-blog">
+                <h2 class="sections"><span>Bộ sưu tập</span></h2>
+                <ul id="featured-posts">
+                    <?php echo $this->partial('home/partial/blog-item', array('news' => $homeBlogNew)); ?>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+    </div>
+</div>

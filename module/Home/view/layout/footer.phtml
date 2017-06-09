@@ -1,0 +1,94 @@
+<div id="shopify-section-footer" class="shopify-section">
+    <div class="footer-template" data-section-id="footer">
+        <div id="footer" class="row">
+            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12 footer-block">
+                <h4>ĐỊA CHỈ</h4>
+                <ul>
+                    <li>407A Lê Văn Sỹ, P.12, Q.3</li>
+                    <li>250 Nguyễn Thị Thập, P.Tân Quy, Q.7</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 footer-block">
+                <h4>Danh mục</h4>
+                <ul>
+                    <?php foreach ($navigations as $v) : ?>
+                        <?php if ($v['navigation_parent'] == 0) : ?>
+                            <li>
+                                <a href="<?php echo (($v['navigation_url_select'] == '') ? $v['navigation_url'] : ($this->serverUrl() . '/' . $this->escapeHtml($v['navigation_url_select']))); ?>"
+                                   title=""><?php echo $this->escapeHtml($v['navigation_name']); ?></a></li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 footer-block">
+                <div id="footer_signup">
+                    <form name="frm_footer_email" id="frm_footer_email">
+                    <input type="email" id="footer_email" name="footer_email" placeholder="Email" style="margin-bottom: 5px;">
+                    <input type="submit" id="footer_subscribe" value="Đăng ký nhận tin khuyến mãi" style="margin-top: 5px">
+                    </form>
+                    </div>
+                </div>
+                <ul id="footer-icons">
+                    <li><a target="_blank" href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"
+                                                                                      aria-hidden="true"></i></a>
+                    </li>
+                    <li><a target="_blank" href="https://instagram.com" target="_blank"><i class="fa fa-instagram"
+                                                                                             aria-hidden="true"></i></a>
+                    </li>
+                    <li><a target="_blank" href="https://twitter.com" target="_blank"><i class="fa fa-twitter "
+                                                                                 aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div id="payment" class="desktop-12 mobile-3">
+                <p>Copyright © 2017 <a href="#" title="">Kaylee</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#frm_footer_email").validate({
+            rules: {
+                footer_email: {
+                    required: true,
+                    email: true,
+                },
+            },
+            messages: {
+                footer_email: {
+                    required: 'Vui lòng nhập Email',
+                    email: 'Email không hợp lệ',
+                },
+            },
+            submitHandler: function (form) {
+                $('#footer_subscribe').val('Đang đăng ký...').css('opacity', '0.5');
+                setTimeout(function () {
+                    $.ajax({
+                        url: '/email-customer',
+                        type: 'post',
+                        data: {email: $('#footer_email').val()},
+                        success: function (response) {
+                            data = jQuery.parseJSON(response);
+                            if (data.return == 1) {
+                                $('#footer_email').val('').attr('disabled', 'disabled');
+                                $('#footer_subscribe').val('Hoàn tất').attr('disabled', 'disabled').css('opacity', '1');
+                            }
+                        }
+                    });
+                }, 2000);
+
+            }
+        });
+
+        $('.product-item-change-color').click(function() {
+            var img_item = $(this).attr('data-img');
+            var id_item = $(this).attr('data-id');
+
+            $('#product-item-picture-' + id_item).attr('src', img_item);
+        })
+    });
+</script>

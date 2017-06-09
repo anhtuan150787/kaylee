@@ -1,0 +1,30 @@
+<nav class="shifter-navigation" data-section-id="mobile-navigation" data-section-type="mobile-navigation">
+    <div class="search">
+        &nbsp;
+    </div>
+
+    <ul id="accordion">
+        <?php foreach ($navigations as $v) : ?>
+            <?php if ($v['navigation_parent'] == 0) : ?>
+                <?php $sub = false;
+                $s = ''; ?>
+
+                <?php
+                foreach ($navigations as $vv) {
+                    if ($vv['navigation_parent'] == $v['navigation_id']) {
+                        $sub = true;
+                        $s .= '<li><a href="' . (($vv['navigation_url_select'] == '') ? $vv['navigation_url'] : ($this->serverUrl() . '/' . $this->escapeHtml($vv['navigation_url_select']))) . '">' . $vv['navigation_name'] . '</a></li>';
+                    }
+                }
+                ?>
+                <?php if ($sub == true) {
+                    echo '<li class="accordion-toggle">' . $v['navigation_name'] . '</li>';
+                    echo '<div class="accordion-content"><ul class="sub">' . $s . '</ul></div>';
+                } else {
+                    echo '<li><a href="' . (($v['navigation_url_select'] == '') ? $v['navigation_url'] : ($this->serverUrl() . '/' . $this->escapeHtml($v['navigation_url_select']))) . '">' . $v['navigation_name'] . '</a></li>';
+                } ?>
+
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+</nav>

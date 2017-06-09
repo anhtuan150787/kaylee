@@ -1,0 +1,42 @@
+<div class="page-header">
+    <div class="pull-left">
+        <h1>Giao diện</h1>
+    </div>
+</div>
+
+<div class="col-lg-12">
+<?php echo $this->flashMessenger()->renderCurrent('default', array('alert', 'alert-success')); ?>
+</div>
+
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-nomargin table-striped table-colored-header">
+                    <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Chức năng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($records as $record) { ?>
+                        <tr style="background: <?php echo $statusColor[$record['status']]; ?>">
+                            <td><strong><?php echo $this->escapeHtml($record['template_name']); ?></strong></td>
+                            <td>
+                                <a href="<?php echo $this->url('admin/template', array('action' => 'edit'), array('query' => array('id' => $record['template_id']))); ?>">
+                                    <i class="icon-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <div class="form-actions no-margin-bottom" style="text-align:right;">
+                    <?php echo $this->paginationControl($records, 'sliding', 'admin/partial/paginator', array('url' => $this->url('admin/page'),)); ?>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

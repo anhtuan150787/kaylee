@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://mr-parker.myshopify.com/ -->
+<html lang="en" class=""><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="<?php echo $this->basePath(); ?>/img/css" rel="stylesheet" type="text/css">
+
+    <title><?php echo $website['website_title']; ?></title>
+    <meta name="description" content="<?php echo $website['website_description']; ?>"/>
+    <meta name="keywords" content="<?php echo $website['website_keyword']; ?>"/>
+
+    <?php
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/pictures/' . $website['website_icon']))
+        ->prependStylesheet($this->basePath('js/jquery-validation/css/style.css'))
+        ->prependStylesheet($this->basePath('css/stylesheet.css'))
+        ->prependStylesheet($this->basePath('css/bootstrap.min.css'));
+    ?>
+
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath('js/jquery.blockUI.js'))
+        ->prependFile($this->basePath('js/jquery.zoom.js'))
+        ->prependFile($this->basePath('js/jquery-validation/dist/jquery.validate.js'))
+        ->prependFile($this->basePath('js/trekkie.storefront.min.js'))
+        ->prependFile($this->basePath('js/bootstrap.min.js'))
+        ->prependFile($this->basePath('js/theme.js'))
+        ->prependFile($this->basePath('js/jquery.min.js'))
+    ?>
+</head>
+
+<body class="gridlock shifter index">
+<div id="shopify-section-mobile-navigation" class="shopify-section">
+    <?php echo $this->partial('home/layout/nav', array('navigations' => $navigations)); ?>
+</div>
+<div class="shifter-page">
+    <?php echo $this->partial('home/layout/header', array('navigations' => $navigations, 'orderCount' => $orderCount)); ?>
+    <div id="content" class="row">
+        <?php echo $this->content; ?>
+    </div>
+
+    <?php echo $this->partial('home/layout/footer', array('navigations' => $navigations)); ?>
+</div>
+
+</body>
+</html>

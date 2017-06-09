@@ -1,0 +1,112 @@
+<style>
+    h3 {
+        font-size: 16px;
+    }
+</style>
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box box-bordered box-color">
+            <div class="box-content nopadding">
+                <?php
+                $form->setAttributes(['action' => '', 'class' => 'form-horizontal form-bordered', 'id' => 'frm', 'enctype' => 'multipart/form-data']);
+                $form->prepare();
+                echo $this->form()->openTag($form);
+                ?>
+
+                <div class="control-group">
+                    <?php echo $this->formLabel($form->get('color_id')); ?>
+                    <div class="controls">
+                        <div class="input-xlarge">
+                            <?php echo $this->formElement($form->get('color_id')); ?>
+                            <?php echo $this->formElementErrors($form->get('color_id'), array('class' => 'error-message')); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <?php echo $this->formLabel($form->get('size_id')); ?>
+                    <div class="controls">
+                        <?php echo $this->formElement($form->get('size_id')); ?>
+                        <?php echo $this->formElementErrors($form->get('size_id'), array('class' => 'error-message')); ?>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label col-lg-2">Hình ảnh</label>
+                    <div class="controls">
+                        <table class="table table-nomargin">
+                            <tbody>
+                            <tr>
+                                <?php for($i=1; $i<=6; $i++) {?>
+                                <td>
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;">
+                                            <?php if (isset($pictures[$i]) && $pictures[$i]['product_picture_name'] !='') {?>
+                                                <img title="Click để xóa" id="picture_<?php echo $pictures[$i]['product_picture_id'] ;?>" onclick="deletePicture(<?php echo $pictures[$i]['product_picture_id'];?>)" style="width: 50px; height: 50px; cursor: pointer" class="img-thumbnail" src="<?php echo $this->basePath('pictures/' . $pictures[$i]['product_picture_name']);?>" />
+                                            <?php } else {?>
+                                                <img src="<?php echo $this->basePath('pictures/no-image.gif');?>" class="img-thumbnail" style="width: 50px; height: 50px" />
+                                            <?php }?>
+                                        </div>
+                                        <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                        <div>
+                                            <span class="btn btn-file"><span class="fileupload-new">Chọn hình</span><span class="fileupload-exists">Thay đổi</span><input type="file" name="picture_<?php echo $i;?>" /></span>
+                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Xóa</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <?php }?>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <?php echo $this->formLabel($form->get('product_detail_status')); ?>
+                    <div class="controls">
+                        <?php echo $this->formElement($form->get('product_detail_status')); ?>
+                        <?php echo $this->formElementErrors($form->get('product_detail_status'), array('class' => 'error-message')); ?>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <input type="button" onclick="location.href='<?php echo $this->url('admin/product', array('action' => 'color', 'product_id' => $product_id));?>'" class="btn btn-default" value="Quay lại">
+                    <?php echo $this->formSubmit($form->get('submit')); ?>
+                    <?php echo $this->formHidden($form->get('csrf')); ?>
+                </div>
+                <?php echo $this->form()->closeTag(); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#frm").validate({
+            rules: {
+                color_id: 'required',
+            },
+            messages: {
+                color_id: 'Vui lòng chọn thông tin',
+            }
+        });
+    });
+
+    function deletePicture(id) {
+        if (confirm('Bạn có muốn xóa?')) {
+            $.ajax({
+                url: '<?php echo $this->url('admin/product', array('action' => 'delete-color-picture'));?>',
+                type: 'post',
+                data: {id: id},
+                success: function (response) {
+                    data = jQuery.parseJSON(response);
+                    if (data.return == 1) {
+                        $('#picture_' + id).remove();
+                    }
+                }
+            });
+        }
+    }
+</script>

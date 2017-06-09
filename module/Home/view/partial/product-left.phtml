@@ -1,0 +1,64 @@
+<style>
+    ul.color-search li {
+        display: inline-table;
+        width: 35%;
+        padding: 3px;
+    }
+    #sidebar h4 {
+        border-bottom: 1px solid #eeeeee;
+    }
+</style>
+
+<div id="sidebar" class="desktop-2 tablet-2 mobile-3">
+<form action="" method="post" id="frm_product" name="frm_product">
+    <ul class="sortme">
+        <li class="clearfix filter">
+            <h4>Sắp xếp</h4>
+            <select name="sort_search" class="styled-select" id="sort_search">
+                <option value="new" <?php echo (isset($search['sort_search']) && $search['sort_search'] == 'new') ? 'selected="selected"' : '';?>>Mới nhất</option>
+                <option value="price_low_high" <?php echo (isset($search['sort_search']) && $search['sort_search'] == 'price_low_high') ? 'selected="selected"' : '';?>>Giá thấp - cao</option>
+                <option value="price_high_low" <?php echo (isset($search['sort_search']) && $search['sort_search'] == 'price_high_low') ? 'selected="selected"' : '';?>>Giá cao - thấp</option>
+            </select>
+        </li>
+    </ul>
+
+    <ul class="sortme">
+        <li class="clearfix filter">
+            <h4>Màu sắc</h4>
+            <select name="color_search" class="styled-select" id="color_search">
+                <option value="">Tất cả</option>
+                <?php foreach($color as $v) {?>
+                <option value="<?php echo $v['color_id'];?>" <?php echo (isset($search['color_search']) && $search['color_search'] == $v['color_id']) ? 'selected="selected"' : '';?>><?php echo $v['color_name'];?></option>
+                <?php }?>
+            </select>
+        </li>
+    </ul>
+
+    <ul class="sortme">
+        <li class="clearfix filter">
+            <h4>Size</h4>
+            <select name="size_search" class="styled-select" id="size_search">
+                <option value="">Tất cả</option>
+                <?php foreach($size as $v) {?>
+                    <option value="<?php echo $v['size_id'];?>" <?php echo (isset($search['size_search']) && $search['size_search'] == $v['size_id']) ? 'selected="selected"' : '';?>><?php echo $v['size_name'];?></option>
+                <?php }?>
+            </select>
+        </li>
+    </ul>
+
+    <ul>
+        <h4>Danh mục</h4>
+        <?php foreach($productCategoryList as $v) {?>
+        <li><a href="<?php echo $this->url('home-product-category', array('name' => $this->functions()->formatTitle($v['product_category_name']), 'id' => $v['product_category_id']));?>" title=""><?php echo $this->escapeHtml($v['product_category_name']);?></a></li>
+        <?php }?>
+    </ul>
+</form>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#sort_search, #color_search, #size_search').change(function(){
+            $('#frm_product').submit();
+        });
+    });
+</script>

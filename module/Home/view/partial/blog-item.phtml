@@ -1,0 +1,17 @@
+<?php foreach ($news as $v) { ?>
+    <li class="desktop-4 mobile-3">
+        <a href="<?php echo $this->url('home-news-detail', array('name' => $this->functions()->formatTitle($v['news_title']), 'id' => $v['news_id'])); ?>">
+            <h3 class="text-center"><?php echo $this->escapeHtml($v['news_title']); ?></h3>
+        </a>
+
+        <div class="homepage-excerpt">
+            <a href="<?php echo $this->url('home-news-detail', array('name' => $this->functions()->formatTitle($v['news_title']), 'id' => $v['news_id'])); ?>"><img
+                    class="article-image"
+                    src="<?php echo $this->serverUrl() . '/public/thumbs/timthumb.php?src=' . $this->basePath() . '/public/pictures/' . $v['news_picture']; ?>&w=375&h=247"
+                    alt="<?php echo $this->escapeHtml($v['news_title']); ?>"></a>
+
+            <div class="clear"></div>
+            <?php echo $v['news_quote']; ?>
+        </div>
+    </li>
+<?php } ?>

@@ -1,0 +1,54 @@
+<div id="shopify-section-header" class="shopify-section">
+    <header>
+        <div class="row">
+            <div id="message" class="desktop-6 mobile-3">
+                <p>Kaylee.vn</p>
+            </div>
+            <ul id="cart" class="desktop-6 mobile-3">
+                <li class="mobile-trigger"><span class="shifter-handle"><i class="fa fa-bars"></i></span></li>
+
+                <li class="cart-count">
+                    <a href="<?php echo $this->url('home-order');?>">Giỏ hàng (<?php echo ($orderCount != '') ? $orderCount : 0;?>)</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="clear"></div>
+    <div class="row">
+        <div id="navigation">
+            <div id="logo" class="desktop-3 tablet-6 mobile-3 ">
+
+                <a href="/">
+                    <img src="<?php echo $this->basePath(); ?>/img/logo_600x.png" alt="Mr Parker"
+                         itemprop="logo">
+                </a>
+
+            </div>
+
+
+            <nav class="nav-inline desktop-9 tablet-6 mobile-3 nav-left">
+                <ul id="nav">
+                    <?php foreach ($navigations as $v) : ?>
+                        <?php if ($v['navigation_parent'] == 0) : ?>
+                            <?php $sub = false;
+                            $s = ''; ?>
+                            <?php
+                            foreach ($navigations as $vv) {
+                                if ($vv['navigation_parent'] == $v['navigation_id']) {
+                                    $sub = true;
+                                    $s .= '<li><a href="' . (($vv['navigation_url_select'] == '') ? $vv['navigation_url'] : ($this->serverUrl() . '/' . $this->escapeHtml($vv['navigation_url_select']))) . '">' . $vv['navigation_name'] . '</a></li>';
+                                }
+                            }
+                            ?>
+                            <?php if ($sub == true) {
+                                echo '<li class="dropdown"><a class="dlink">' . $v['navigation_name'] . '</a><ul>' . $s . '</ul></li>';
+                            } else {
+                                echo '<li><a href="' . (($v['navigation_url_select'] == '') ? $v['navigation_url'] : ($this->serverUrl() . '/' . $this->escapeHtml($v['navigation_url_select']))) . '">' . $v['navigation_name'] . '</a></li>';
+                            } ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

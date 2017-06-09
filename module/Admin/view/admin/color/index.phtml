@@ -1,0 +1,73 @@
+<div class="page-header">
+    <div class="pull-left">
+        <h1>Màu sản phẩm</h1>
+    </div>
+</div>
+
+
+<div class="col-lg-12">
+    <?php echo $this->flashMessenger()->renderCurrent('default', array('alert', 'alert-success')); ?>
+</div>
+
+<div class="pull-right" style="margin-top: 10px; margin-bottom: 10px">
+    <input type="button"
+           onclick="location.href='<?php echo $this->url('admin/color', array('action' => 'add')); ?>'"
+           class="btn btn-primary" value="Thêm">
+</div>
+
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-nomargin table-striped table-colored-header">
+                    <thead>
+                    <tr>
+                        <th>Hình của màu</th>
+                        <th>Tên màu</th>
+                        <th>Trạng thái</th>
+                        <th>Chức năng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($records as $record) { ?>
+                        <tr>
+                            <td width="80px">
+                                <?php
+                                if ($record['color_picture'] != '') {
+                                    echo '<img src="' . $this->basePath('pictures/' . $record['color_picture']) . '" class="img-thumbnail" style="width: 32px; height: 32px" />';
+                                } else {
+                                    echo '<img src="' . $this->basePath('pictures/no-image.gif') . '" class="img-thumbnail" style="width: 32px; height: 32px" />';
+                                }
+                                ?>
+                            </td>
+                            <td><strong><?php echo $this->escapeHtml($record['color_name']); ?></strong></td>
+                            <td><?php echo $status[$record['color_status']]; ?></td>
+                            <td>
+                                <a href="<?php echo $this->url('admin/color', array('action' => 'edit'), array('query' => array('id' => $record['color_id']))); ?>">
+                                    <i class="icon-edit"></i>
+                                </a>
+                                <a onclick="return confirmDelete()"
+                                   href="<?php echo $this->url('admin/color', array('action' => 'delete'), array('query' => array('id' => $record['color_id']))); ?>">
+                                    <i class="icon-remove"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <div class="form-actions no-margin-bottom"
+                     style="text-align:right; margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0">
+                    <?php echo $this->paginationControl($records, 'sliding', 'admin/partial/paginator', array('url' => $this->url('admin/color'),)); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete() {
+        if (!confirm('Bạn có chắc chắn muốn xóa?')) {
+            return false;
+        }
+    }
+</script>
