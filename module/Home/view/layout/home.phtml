@@ -33,7 +33,7 @@
     <?php echo $this->partial('home/layout/nav', array('navigations' => $navigations)); ?>
 </div>
 <div class="shifter-page">
-    <?php echo $this->partial('home/layout/header', array('navigations' => $navigations, 'orderCount' => $orderCount)); ?>
+    <?php echo $this->partial('home/layout/header', array('navigations' => $navigations, 'orderCount' => $orderCount, 'template' => $template)); ?>
     <div id="content" class="row">
         <?php echo $this->content; ?>
     </div>

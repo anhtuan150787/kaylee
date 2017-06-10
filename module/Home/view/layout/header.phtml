@@ -18,9 +18,8 @@
         <div id="navigation">
             <div id="logo" class="desktop-3 tablet-6 mobile-3 ">
 
-                <a href="/">
-                    <img src="<?php echo $this->basePath(); ?>/img/logo_600x.png" alt="Mr Parker"
-                         itemprop="logo">
+                <a href="<?php echo $this->serverUrl() . '/' . $template[4]['template_url'];?>">
+                    <img src="<?php echo $this->basePath() . '/public/pictures/' . $template[4]['template_picture']; ?>">
                 </a>
 
             </div>

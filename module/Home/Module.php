@@ -161,6 +161,15 @@ class Module
                 $navigations = $this->getNavigationList($dbAdapter);
                 $viewModel->navigations = $navigations;
 
+                //Giao dien
+                $statement = $dbAdapter->query('SELECT * FROM template');
+                $template = $statement->execute();
+                $templateData = [];
+                foreach($template as $v) {
+                    $templateData[$v['template_id']] = $v;
+                }
+                $viewModel->template = $templateData;
+
                 $session = new Container('cart');
                 if ($session->offsetExists('order')) {
                     $order = $session->offsetGet('order');
