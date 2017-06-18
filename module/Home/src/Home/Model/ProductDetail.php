@@ -36,7 +36,7 @@ class ProductDetail {
     {
         $sql = 'SELECT * FROM product_detail as pd
                 LEFT JOIN color as c ON pd.color_id=c.color_id
-                WHERE product_id = ' . $productId;
+                WHERE product_detail_status = 1 AND  product_id = ' . $productId;
         $statement = $this->tableGateway->getAdapter()->query($sql);
         $result = $statement->execute();
 

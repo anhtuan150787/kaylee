@@ -7,8 +7,8 @@ return array(
         'port'              => 465,
         'connection_class'  => 'login',
         'connection_config' => array(
-            'username' => 'anhtuan150787.2@gmail.com',
-            'password' => 'sejbkaydxrekrnce',
+            'username' => 'anhtuan150787.3@gmail.com',
+            'password' => 'ssgehtoirmzsehqa',
             'ssl'      => 'ssl',
         ),
     ),

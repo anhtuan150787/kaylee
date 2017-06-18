@@ -39,6 +39,9 @@ class ProductController extends AbstractActionController
         $search = [];
         if ($this->getRequest()->isPost()) {
             $dataSearch = $this->params()->fromPost();
+            if ($dataSearch['code_search']) {
+                $search['code_search'] = $dataSearch['code_search'];
+            }
             if ($dataSearch['sort_search']) {
                 $search['sort_search'] = $dataSearch['sort_search'];
             }
@@ -104,6 +107,9 @@ class ProductController extends AbstractActionController
         $search = [];
         if ($this->getRequest()->isPost()) {
             $dataSearch = $this->params()->fromPost();
+            if ($dataSearch['code_search']) {
+                $search['code_search'] = $dataSearch['code_search'];
+            }
             if ($dataSearch['sort_search']) {
                 $search['sort_search'] = $dataSearch['sort_search'];
             }
@@ -175,6 +181,9 @@ class ProductController extends AbstractActionController
         $search = [];
         if ($this->getRequest()->isPost()) {
             $dataSearch = $this->params()->fromPost();
+            if ($dataSearch['code_search']) {
+                $search['code_search'] = $dataSearch['code_search'];
+            }
             if ($dataSearch['sort_search']) {
                 $search['sort_search'] = $dataSearch['sort_search'];
             }

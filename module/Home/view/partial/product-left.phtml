@@ -11,6 +11,14 @@
 
 <div id="sidebar" class="desktop-2 tablet-2 mobile-3">
 <form action="" method="post" id="frm_product" name="frm_product">
+
+    <ul class="sortme">
+        <li class="clearfix filter">
+            <h4>Mã sản phẩm</h4>
+            <input type="text" name="code_search" id="code_search" value="<?php echo (isset($search['code_search']) && $search['code_search'] != '') ? $search['code_search']  : '';?>" style="margin-bottom: 0" />
+        </li>
+    </ul>
+
     <ul class="sortme">
         <li class="clearfix filter">
             <h4>Sắp xếp</h4>

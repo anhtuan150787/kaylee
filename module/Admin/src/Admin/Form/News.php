@@ -133,7 +133,7 @@ class News extends Form {
                 [
                     'name' => 'Zend\Validator\File\Size',
                     'options' => [
-                        'max' => '1MB' //1MB
+                        'max' => '50MB' //1MB
                     ],
                 ],
                 [

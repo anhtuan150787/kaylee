@@ -8,9 +8,9 @@
 
     <div id="shopify-section-1480441270710" class="shopify-section"><div class="index-section" data-section-id="1480441270710" data-section-type="feat-image-section">
             <div>
-                <div class="desktop-12 mobile-3">
+                <div class="desktop-12 mobile-12">
                     <a href="<?php echo $this->serverUrl() . '/' . $template[3]['template_url'];?>">
-                        <img src="<?php echo $this->serverUrl() . '/public/thumbs/timthumb.php?src=' . $this->basePath() . '/public/pictures/' . $template[3]['template_picture']; ?>&w=1200">
+                        <img src="<?php echo $this->basePath() . '/public/pictures/' . $template[3]['template_picture']; ?>">
                     </a>
                 </div>
             </div>
@@ -29,6 +29,8 @@
         <div class="clear"></div>
     </div>
 
+    <?php if (count($homeBlogNew) > 0) {?>
+
     <div id="shopify-section-1480441281926" class="shopify-section">
         <div class="index-section" data-section-id="1480441281926" data-section-type="featured-blog-section">
             <div id="homepage-blog">
@@ -39,7 +41,7 @@
             </div>
             <div class="clear"></div>
         </div>
-
+        <?php }?>
 
     </div>
 </div>

@@ -54,6 +54,15 @@
                     <?php echo $this->formElementErrors($form->get('contact_content'), array('class' => 'error-message')); ?>
                 </p>
             </div>
+
+            <div class="desktop-12 mobile-3">
+                <p>
+                    <?php echo $this->formRow($form->get('Captcha'));?>
+                    <?php echo $this->formElementerrors($form->get('Captcha'), ['class' => 'error-message']); ?>
+                </p>
+            </div>
+
+
             <div class="desktop-12 mobile-3">
                 <p>
                     <?php echo $this->formSubmit($form->get('submit')); ?>
@@ -101,6 +110,13 @@
                     maxlength: 'Lời nhắn không quá 300 ký tự',
                 },
             }
+        });
+
+        $('div.captcha img').click(function(){
+            $.get('<?php echo $this->url('captcha');?>', function(data) {
+                $('div.captcha img').attr('src', data.url);
+                $('input[name="Captcha[id]"]').val(data.id);
+            });
         });
     });
 </script>

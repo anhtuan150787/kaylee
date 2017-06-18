@@ -23,6 +23,9 @@ class Product {
 
         $where = $predicate->isNotNull('product_id');
 
+        $where->and;
+        $select->where($predicate->equalTo('product_status', 1));
+
         if (isset($search['name'])) {
             $where->and;
             $select->where($predicate->like('product_name', '%' . $search['name'] . '%'));
@@ -73,8 +76,16 @@ class Product {
         );
 
         $predicate = new  \Zend\Db\Sql\Where();
+
+        $select->where($predicate->equalTo('product.product_status', 1));
+        $select->where($predicate->equalTo('product_detail.product_detail_status', 1));
+
         if ($productCategoryId != null) {
             $select->where($predicate->equalTo('product.product_category_id', $productCategoryId));
+        }
+
+        if (!empty($search) && isset($search['code_search']) && $search['code_search'] != '') {
+            $select->where($predicate->equalTo('product.product_code', $search['code_search']));
         }
 
         if (!empty($search) && isset($search['color_search']) && $search['color_search'] != '') {
@@ -123,7 +134,7 @@ class Product {
                     FROM product_detail
                     LEFT JOIN color ON product_detail.color_id=color.color_id
                     LEFT JOIN product_picture ON product_detail.product_detail_id=product_picture.product_detail_id
-                    WHERE product_detail.product_id = ' . $v['product_id'] . ' AND product_picture.product_picture_position = 1';
+                    WHERE product_detail.product_id = ' . $v['product_id'] . ' AND product_detail.product_detail_status = 1 AND product_picture.product_picture_position = 1';
 
             $statement = $this->tableGateway->getAdapter()->query($sql);
             $resultProductDetail = $statement->execute();
@@ -171,7 +182,7 @@ class Product {
 
     public function getProductOther($productCategoryId, $productId)
     {
-        $sql = 'SELECT * FROM product WHERE product_category_id = ' . $productCategoryId  . ' AND product_id <> '. $productId . ' ORDER BY product_id DESC LIMIT 6';
+        $sql = 'SELECT * FROM product WHERE product_category_id = ' . $productCategoryId  . ' AND product_id <> '. $productId . '  AND product_status = 1 ORDER BY product_id DESC LIMIT 6';
         $statement = $this->tableGateway->getAdapter()->query($sql);
         $result = $statement->execute();
 
