@@ -318,6 +318,12 @@
         });
 
 
+        var messFeeLater = 'Đơn hàng chưa bao gồm phí ship<br> Kaylee sẽ liên hệ báo phí sau';
+
+        if ($('#order_district').val() == 25) {
+            $('#fee_span').html(messFeeLater);
+        }
+
         $('#order_district').change(function(){
             $.blockUI({
                 message: 'Đang cập nhật phí vận chuyển',
@@ -335,6 +341,10 @@
                             $('#fee_span').html(data.fee);
                             $('#amounttotal_span').html(data.amountTotal);
                             $('#district-name').html(data.districtName);
+
+                            if ($('#order_district').val() == 25) {
+                                $('#fee_span').html(messFeeLater);
+                            }
                         }
                         $.unblockUI();
                     }

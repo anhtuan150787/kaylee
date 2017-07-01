@@ -19,13 +19,13 @@
             <div id="logo" class="desktop-3 tablet-6 mobile-3 ">
 
                 <a href="<?php echo $this->serverUrl() . '/' . $template[4]['template_url'];?>">
-                    <img style="width: 253px; height: 33px" src="<?php echo $this->basePath() . '/public/pictures/' . $template[4]['template_picture']; ?>">
+                    <img style="width: 253px; height: 63px" src="<?php echo $this->basePath() . '/public/pictures/' . $template[4]['template_picture']; ?>">
                 </a>
 
             </div>
 
 
-            <nav class="nav-inline desktop-9 tablet-6 mobile-3 nav-left">
+            <nav class="nav-inline desktop-9 tablet-6 mobile-3 nav-left" style="margin-top: 20px">
                 <ul id="nav">
                     <?php foreach ($navigations as $v) : ?>
                         <?php if ($v['navigation_parent'] == 0) : ?>

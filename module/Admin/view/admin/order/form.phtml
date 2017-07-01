@@ -57,7 +57,7 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>Sản phẩm</th>
+<!--                        <th>Sản phẩm</th>-->
                         <th>Màu</th>
                         <th>Size</th>
                         <th>Mã</th>
@@ -70,10 +70,10 @@
 
                     <?php foreach ($order['products'] as $v) { ?>
                         <tr>
-                            <td><img class="media-object img-thumbnail"
-                                     src="<?php echo $this->basePath('pictures/' . $v['product_picture']); ?>"
-                                     style="float: left; width: 75px; height: 75px">&nbsp;&nbsp;<?php echo $this->escapeHtml($v['product_name']); ?>
-                            </td>
+<!--                            <td><img class="media-object img-thumbnail"-->
+<!--                                     src="--><?php //echo $this->basePath('pictures/' . $v['product_picture']); ?><!--"-->
+<!--                                     style="float: left; width: 75px; height: 75px">&nbsp;&nbsp;--><?php //echo $this->escapeHtml($v['product_name']); ?>
+<!--                            </td>-->
                             <td>
                                 <?php echo $v['color']; ?>
                             </td>
@@ -91,19 +91,19 @@
                         </tr>
                     <?php } ?>
                     <tr>
-                        <td colspan="6" class="text-right" style="text-align: right">Tổng tiền (VND)</td>
+                        <td colspan="5" class="text-right" style="text-align: right">Tổng tiền (VND)</td>
                         <td colspan="1" class="price-order"><?php echo $this->currency($order['amount']); ?></td>
                     </tr>
                     <tr>
-                        <td colspan="6" class="text-right" style="text-align: right">Phí vận chuyển (VND)</td>
+                        <td colspan="5" class="text-right" style="text-align: right">Phí vận chuyển (VND)</td>
                         <td colspan="1" class="price-order"><?php echo $this->currency($order['fee']); ?></td>
                     </tr>
                     <tr>
-                        <td colspan="6" class="text-right" style="text-align: right">Tổng cộng (VND)</td>
+                        <td colspan="5" class="text-right" style="text-align: right">Tổng cộng (VND)</td>
                         <td colspan="1" class="price-order"><?php echo $this->currency($order['amountTotal']); ?></td>
                     </tr>
                     <tr>
-                        <td colspan="6" class="text-right" style="text-align: right">Phương thức thanh toán</td>
+                        <td colspan="5" class="text-right" style="text-align: right">Phương thức thanh toán</td>
                         <td colspan="1" class="price-order"><?php echo $record['order_payment_method']; ?></td>
                     </tr>
                     </tbody>

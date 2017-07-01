@@ -48,6 +48,7 @@ class OrderController extends AbstractActionController
             '22' => 'Huyện Hóc Môn',
             '23' => 'Huyện Nhà Bè',
             '24' => 'Huyện Cần Giờ',
+            '25' => 'Tỉnh thành khác',
         ];
     }
 
@@ -298,6 +299,7 @@ class OrderController extends AbstractActionController
                 $bodyMail = preg_replace($patterns, $replacements, $bodyMail);
 
                 $sendMail = $this->getServiceLocator()->get('send_mail');
+
                 $sendMail->setTo($data['order_email']);
                 $sendMail->setSubject('Đơn đặt hàng tại Kaylee.vn');
                 $sendMail->setBody($bodyMail);
@@ -309,6 +311,13 @@ class OrderController extends AbstractActionController
                 $sendMail->setSubject('Đơn đặt hàng tại Kaylee.vn');
                 $sendMail->setBody($bodyMailSecond);
                 $sendMail->action();
+
+
+                $sendMail->setTo('kayleeshoesvn@gmail.com');
+                $sendMail->setSubject('Đơn đặt hàng tại Kaylee.vn');
+                $sendMail->setBody($bodyMailSecond);
+                $sendMail->action();
+
 
                 $session->offsetUnset('order');
                 $this->redirect()->toRoute('home-order-success');
@@ -367,7 +376,7 @@ class OrderController extends AbstractActionController
             } else {
                 $order['fee'] = 30000;
             }
-            if ($order['amount'] > 1500000) {
+            if ($order['amount'] > 1500000 || $districtId == 25) {
                 $order['fee'] = 0;
             }
             $order['amountTotal'] = $order['fee'] + $order['amount'];
