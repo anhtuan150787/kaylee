@@ -208,11 +208,11 @@
                                     <div class="section__content">
                                         <div class="fieldset" data-address-fields="">
                                             <div class="field field--optional field--show-floating-label">
-                                                <div class="raido__input">
-                                                    <label style="font-weight: normal"><input class="input-radio" type="radio" name="payment_method" value="Tiền mặt" checked="checked"> Tiền mặt khi giao hàng</label>
+                                                <div class="raido__input" id="div-payment-cash">
+                                                    <label style="font-weight: normal"><input id="input-payment-cash" class="input-radio" type="radio" name="payment_method" value="Tiền mặt" checked="checked"> Tiền mặt khi giao hàng</label>
                                                 </div>
-                                                <div class="radio__input">
-                                                    <label style="font-weight: normal"><input class="input-radio" type="radio" name="payment_method" value="Chuyển khoản"> Thanh toán chuyển khoản</label>
+                                                <div class="radio__input" id="div-payment-online">
+                                                    <label style="font-weight: normal"><input id="input-payment-online" class="input-radio" type="radio" name="payment_method" value="Chuyển khoản"> Thanh toán chuyển khoản</label>
                                                     <p style="padding-left: 30px">Chủ Tài khoản: Nguyễn Thị Hồng Nhung<br>
                                                         Số tài khoản: 0071000595443<br>
                                                         Ngân hàng Vietcombank chi nhánh Hồ Chí Minh</p>
@@ -322,6 +322,13 @@
 
         if ($('#order_district').val() == 25) {
             $('#fee_span').html(messFeeLater);
+            $('#div-payment-cash').hide();
+            $('#input-payment-cash').removeAttr('checked');
+            $('#input-payment-online').attr('checked', 'checked');
+            $('#input-payment-online').hide();
+        } else {
+            $('#div-payment-cash').show();
+            $('#input-payment-online').show();
         }
 
         $('#order_district').change(function(){
@@ -344,6 +351,14 @@
 
                             if ($('#order_district').val() == 25) {
                                 $('#fee_span').html(messFeeLater);
+                                $('#div-payment-cash').hide();
+                                $('#input-payment-cash').removeAttr('checked');
+                                $('#input-payment-online').attr('checked', 'checked');
+                                $('#input-payment-online').hide();
+                            } else {
+                                $('#div-payment-cash').show();
+                                $('#input-payment-online').show();
+
                             }
                         }
                         $.unblockUI();

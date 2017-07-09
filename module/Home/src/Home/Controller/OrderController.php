@@ -282,7 +282,11 @@ class OrderController extends AbstractActionController
                 $replacements[4] = $contentMail;
 
                 $replacements[5] = $currency->__invoke($order['amount']);
-                $replacements[6] = $currency->__invoke($order['fee']);
+                if ($data['order_district'] == 25) {
+                    $replacements[6] = 'Đơn hàng chưa bao gồm phí ship<br> Kaylee sẽ liên hệ báo phí sau';
+                } else {
+                    $replacements[6] = $currency->__invoke($order['fee']);
+                }
                 $replacements[7] = $currency->__invoke($order['amountTotal']);
 
                 $replacements[8] = $data['order_note'];
