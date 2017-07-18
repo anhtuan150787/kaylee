@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 01, 2017 at 07:33 PM
+-- Generation Time: Jul 18, 2017 at 09:33 PM
 -- Server version: 5.5.55-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.21
+-- PHP Version: 5.6.30-12~ubuntu14.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `contact_phone` int(11) NOT NULL,
   `contact_content` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`contact_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `contact`
@@ -322,7 +322,8 @@ CREATE TABLE IF NOT EXISTS `contact` (
 INSERT INTO `contact` (`contact_id`, `contact_fullname`, `contact_email`, `contact_phone`, `contact_content`) VALUES
 (3, 'tu nguyen', 'dd@gmail.com', 1234033187, 'asd'),
 (4, 'tu nguyen', 'dd@gmail.com', 1234033187, 'asd'),
-(5, 'tu nguyen', 'dd@gmail.com', 1234033187, 'Test lời nhắn trong liên hệ');
+(5, 'tu nguyen', 'dd@gmail.com', 1234033187, 'Test lời nhắn trong liên hệ'),
+(6, 'test', 'test@yahoo.com', 2147483647, 'test');
 
 -- --------------------------------------------------------
 
@@ -758,7 +759,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `order_note` text COLLATE utf8_unicode_ci NOT NULL,
   `order_status` int(11) NOT NULL,
   `order_amount` int(11) NOT NULL,
-  `order_fee` int(11) NOT NULL,
+  `order_fee` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `order_date` datetime NOT NULL,
   `order_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `order_time_from` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -766,43 +767,52 @@ CREATE TABLE IF NOT EXISTS `order` (
   `order_district` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `order_payment_method` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`order_id`, `order_fullname`, `order_email`, `order_address`, `order_phone`, `order_note`, `order_status`, `order_amount`, `order_fee`, `order_date`, `order_code`, `order_time_from`, `order_time_to`, `order_district`, `order_payment_method`) VALUES
-(1, 'Anh Tuấn', 'anhtuan1507@gmail.com', 'test địa chỉ', 944518822, 'giao hàng trong giờ hành chính', 1, 2800000, 0, '2017-04-11 15:57:43', '', '', '', '', ''),
-(2, 'Anh Tuan', 'anhtuan1507@gmail.com', 'test', 1234033187, 'test', 0, 600000, 0, '2017-04-20 09:33:11', '', '', '', '', ''),
-(3, 'asd', 'anhtuan1507@gmail.com', 'tes', 1234033187, 'ttest', 0, 600000, 0, '2017-04-20 09:41:43', '', '', '', '', ''),
-(4, 'tu nguyen', 'anhtuan1507@gmail.com', '71', 1234033187, 'sd', 0, 900000, 0, '2017-04-20 09:43:13', '', '', '', '', ''),
-(5, 'anh tuan', 'anhtuan150787@gmail.com', 'test', 1234033187, 'asd', 0, 900000, 0, '2017-04-20 10:02:55', '', '', '', '', ''),
-(6, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 1234033187, 'test', 0, 600000, 0, '2017-04-20 11:24:19', '', '', '', '', ''),
-(7, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944518811, 'test', 0, 800000, 0, '2017-04-20 13:06:49', '', '', '', '', ''),
-(8, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944518822, 'test', 0, 800000, 0, '2017-04-20 13:09:46', '', '', '', '', ''),
-(9, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944517722, 'test', 0, 1000000, 0, '2017-04-20 13:15:36', '', '', '', '', ''),
-(10, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944518822, 'test', 0, 800000, 0, '2017-04-20 13:18:17', '', '', '', '', ''),
-(11, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 944112211, 'test', 0, 600000, 0, '2017-04-20 14:33:26', '', '', '', '', ''),
-(12, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 900000, 0, '2017-04-20 14:34:05', '', '', '', '', ''),
-(13, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 1234033187, 'test', 0, 600000, 0, '2017-04-20 14:35:17', '', '', '', '', ''),
-(14, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 800000, 0, '2017-04-20 14:41:01', '', '', '', '', ''),
-(15, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 600000, 0, '2017-04-20 14:42:15', '', '', '', '', ''),
-(16, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 9112211, 'test', 0, 600000, 0, '2017-04-20 14:52:28', '', '', '', '', ''),
-(17, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 9112211, 'test', 0, 900000, 0, '2017-04-20 14:53:39', '', '', '', '', ''),
-(18, 'Anh', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 900000, 0, '2017-04-20 15:06:23', '', '', '', '', ''),
-(19, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 800000, 0, '2017-04-20 15:25:15', 'QZ71519', '', '', '', ''),
-(20, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'tet', 0, 900000, 0, '2017-04-20 15:29:39', 'QP97920', '', '', '', ''),
-(21, 'Anh Tuấn', 'anhtuan150787@yahoo.com', 'test', 944112211, 'Không có mã giảm giá', 0, 900000, 0, '2017-05-23 20:33:12', 'WP39221', '11:00', '15:00', '', ''),
-(22, 'Anh Tuấn', 'anhtuan150787@yahoo.com', 'test', 944112211, 'Không có mã giảm giá', 0, 900000, 0, '2017-05-23 20:33:40', 'KZ42122', '11:00', '15:00', '', ''),
-(23, 'Anh Tuan', 'anhtuan150787@yahoo.com', 'test', 944519922, '', 0, 1000000, 0, '2017-05-23 20:37:12', 'IF63223', '08:00', '18:00', '', ''),
-(24, 'Test', 'anhtuan150787@yahoo.com', 'test teest', 9112211, 'test', 0, 2100000, 0, '2017-05-24 20:32:40', 'HV76024', '08:00', '18:00', 'Quận 1', ''),
-(25, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'teest', 944518822, 'test', 0, 2700000, 0, '2017-05-29 20:36:38', 'SE99825', '08:00', '18:00', 'Quận 10', ''),
-(26, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test test', 911221122, 'test', 0, 1600000, 0, '2017-05-29 21:00:20', 'FR42026', '08:00', '18:00', 'Quận 10', 'Chuyển khoản'),
-(27, '53535', 'anhtuan150787@gmail.com', 'test', 911221122, 'test', 0, 630000, 30000, '2017-05-29 21:03:17', 'DH59727', '08:00', '18:00', 'Quận Bình Tân', 'Tiền mặt'),
-(28, 'test', 'anhtuan150787@yahoo.com', 'test test', 911221122, 'test', 0, 620000, 20000, '2017-05-31 11:30:54', 'PJ05428', '08:00', '18:00', 'Quận 2', 'Tiền mặt'),
-(29, 'Tuan', 'anhtuan150787@yahoo.com', 'test', 911221122, 'test', 0, 630000, 30000, '2017-05-31 11:45:27', 'ZC92729', '08:00', '18:00', 'Quận Bình Thạnh', 'Tiền mặt'),
-(30, 'anh tuan', 'test@yahoo.com', 'test', 9123123, 'gsdsd', 0, 620000, 20000, '2017-05-31 12:02:18', 'XA93830', '08:00', '18:00', 'Quận 1', 'Tiền mặt');
+(1, 'Anh Tuấn', 'anhtuan1507@gmail.com', 'test địa chỉ', 944518822, 'giao hàng trong giờ hành chính', 1, 2800000, '0', '2017-04-11 15:57:43', '', '', '', '', ''),
+(2, 'Anh Tuan', 'anhtuan1507@gmail.com', 'test', 1234033187, 'test', 0, 600000, '0', '2017-04-20 09:33:11', '', '', '', '', ''),
+(3, 'asd', 'anhtuan1507@gmail.com', 'tes', 1234033187, 'ttest', 0, 600000, '0', '2017-04-20 09:41:43', '', '', '', '', ''),
+(4, 'tu nguyen', 'anhtuan1507@gmail.com', '71', 1234033187, 'sd', 0, 900000, '0', '2017-04-20 09:43:13', '', '', '', '', ''),
+(5, 'anh tuan', 'anhtuan150787@gmail.com', 'test', 1234033187, 'asd', 0, 900000, '0', '2017-04-20 10:02:55', '', '', '', '', ''),
+(6, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 1234033187, 'test', 0, 600000, '0', '2017-04-20 11:24:19', '', '', '', '', ''),
+(7, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944518811, 'test', 0, 800000, '0', '2017-04-20 13:06:49', '', '', '', '', ''),
+(8, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944518822, 'test', 0, 800000, '0', '2017-04-20 13:09:46', '', '', '', '', ''),
+(9, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944517722, 'test', 0, 1000000, '0', '2017-04-20 13:15:36', '', '', '', '', ''),
+(10, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 944518822, 'test', 0, 800000, '0', '2017-04-20 13:18:17', '', '', '', '', ''),
+(11, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 944112211, 'test', 0, 600000, '0', '2017-04-20 14:33:26', '', '', '', '', ''),
+(12, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 900000, '0', '2017-04-20 14:34:05', '', '', '', '', ''),
+(13, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 1234033187, 'test', 0, 600000, '0', '2017-04-20 14:35:17', '', '', '', '', ''),
+(14, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 800000, '0', '2017-04-20 14:41:01', '', '', '', '', ''),
+(15, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 600000, '0', '2017-04-20 14:42:15', '', '', '', '', ''),
+(16, 'Anh Tuan', 'anhtuan150787@gmail.com', 'test', 9112211, 'test', 0, 600000, '0', '2017-04-20 14:52:28', '', '', '', '', ''),
+(17, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test', 9112211, 'test', 0, 900000, '0', '2017-04-20 14:53:39', '', '', '', '', ''),
+(18, 'Anh', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 900000, '0', '2017-04-20 15:06:23', '', '', '', '', ''),
+(19, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'test', 0, 800000, '0', '2017-04-20 15:25:15', 'QZ71519', '', '', '', ''),
+(20, 'Anh Tuan', 'anhtuan150787@gmail.com', '19/9 Cầm Bá THước, P.7, Q.Phú Nhuận', 1234033187, 'tet', 0, 900000, '0', '2017-04-20 15:29:39', 'QP97920', '', '', '', ''),
+(21, 'Anh Tuấn', 'anhtuan150787@yahoo.com', 'test', 944112211, 'Không có mã giảm giá', 0, 900000, '0', '2017-05-23 20:33:12', 'WP39221', '11:00', '15:00', '', ''),
+(22, 'Anh Tuấn', 'anhtuan150787@yahoo.com', 'test', 944112211, 'Không có mã giảm giá', 0, 900000, '0', '2017-05-23 20:33:40', 'KZ42122', '11:00', '15:00', '', ''),
+(23, 'Anh Tuan', 'anhtuan150787@yahoo.com', 'test', 944519922, '', 0, 1000000, '0', '2017-05-23 20:37:12', 'IF63223', '08:00', '18:00', '', ''),
+(24, 'Test', 'anhtuan150787@yahoo.com', 'test teest', 9112211, 'test', 0, 2100000, '0', '2017-05-24 20:32:40', 'HV76024', '08:00', '18:00', 'Quận 1', ''),
+(25, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'teest', 944518822, 'test', 0, 2700000, '0', '2017-05-29 20:36:38', 'SE99825', '08:00', '18:00', 'Quận 10', ''),
+(26, 'Anh Tuấn', 'anhtuan150787@gmail.com', 'test test', 911221122, 'test', 0, 1600000, '0', '2017-05-29 21:00:20', 'FR42026', '08:00', '18:00', 'Quận 10', 'Chuyển khoản'),
+(27, '53535', 'anhtuan150787@gmail.com', 'test', 911221122, 'test', 0, 630000, '30000', '2017-05-29 21:03:17', 'DH59727', '08:00', '18:00', 'Quận Bình Tân', 'Tiền mặt'),
+(28, 'test', 'anhtuan150787@yahoo.com', 'test test', 911221122, 'test', 0, 620000, '20000', '2017-05-31 11:30:54', 'PJ05428', '08:00', '18:00', 'Quận 2', 'Tiền mặt'),
+(29, 'Tuan', 'anhtuan150787@yahoo.com', 'test', 911221122, 'test', 0, 630000, '30000', '2017-05-31 11:45:27', 'ZC92729', '08:00', '18:00', 'Quận Bình Thạnh', 'Tiền mặt'),
+(30, 'anh tuan', 'test@yahoo.com', 'test', 9123123, 'gsdsd', 0, 620000, '20000', '2017-05-31 12:02:18', 'XA93830', '08:00', '18:00', 'Quận 1', 'Tiền mặt'),
+(31, 'anh tuan', 'anhtuan150787@gmail.com', 'test test', 944518844, 'test', 0, 630000, '30000', '2017-06-05 19:40:48', 'WO44931', '08:00', '18:00', 'Quận 6', 'Chuyển khoản'),
+(32, 'anh tuan', 'anhtuan150787@yahoo.com', 'test', 944112211, 'test', 0, 630000, '30000', '2017-06-05 19:46:42', 'TD80232', '08:00', '18:00', 'Quận Bình Tân', 'Tiền mặt'),
+(33, 'anh tuan', 'anhtuan150787@yahoo.com', 'testt test', 944112211, 'test', 0, 830000, '30000', '2017-06-05 19:51:45', 'TF10533', '08:00', '18:00', 'Quận Bình Thạnh', 'Chuyển khoản'),
+(34, 'test test', 'anhtuan150787@yahoo.com', 'test test', 944112211, '', 0, 930000, '30000', '2017-06-05 19:57:46', 'WX46634', '08:00', '18:00', 'Quận 10', 'Tiền mặt'),
+(35, 'anh tuan', 'anhtuan150787@gmail.com', 'test', 944119922, 'test', 0, 930000, '30000', '2017-06-05 20:00:35', 'IM63535', '08:00', '18:00', 'Quận 8', 'Tiền mặt'),
+(36, 'anh tuan', 'anhtuan150787@yahoo.com', 'test test', 94412221, '', 0, 930000, '30000', '2017-06-05 20:02:21', 'IB74136', '08:00', '18:00', 'Quận Bình Tân', 'Tiền mặt'),
+(37, 'anh tuan', 'anhtuan150787@yahoo.com', 'test test', 944112211, '', 0, 630000, '30000', '2017-06-05 20:13:46', 'OD42737', '08:00', '18:00', 'Quận Phú Nhuận', 'Tiền mặt'),
+(38, 'anh tuan', 'anhtuan150787@yahoo.com', 'test', 944112211, '', 0, 630000, '30000', '2017-06-05 20:16:14', 'VK57538', '08:00', '18:00', 'Quận Bình Tân', 'Tiền mặt'),
+(39, 'test', 'test@yahoo.com', 'test', 944112211, 'sd', 0, 600000, '0', '2017-06-18 18:33:42', 'JU62339', '08:00', '18:00', 'Tỉnh thành khác', 'Tiền mặt');
 
 -- --------------------------------------------------------
 
@@ -822,7 +832,7 @@ CREATE TABLE IF NOT EXISTS `order_detail` (
   `color` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `size` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`order_detail_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=42 ;
 
 --
 -- Dumping data for table `order_detail`
@@ -860,7 +870,16 @@ INSERT INTO `order_detail` (`order_detail_id`, `order_id`, `product_name`, `prod
 (29, 27, 'BASIC PENNY LOAFERS', 600000, 1, 8, 'product_1491999897_2017-L3-CK1-70380574-23-3.jpg', 'CK1-70380574_YELLOW', 'Black', '37'),
 (30, 28, 'BASIC PENNY LOAFERS', 600000, 1, 8, 'product_1491999897_2017-L3-CK1-70380574-23-3.jpg', 'CK1-70380574_YELLOW', 'Black', '38'),
 (31, 29, 'ESPADRILLE FLATFORM SLIP-ONS', 600000, 1, 7, 'product_1491995964_2016-L2-CK1-80190043-01-3-500.jpg', 'CK1-80190043_BROWN', 'Camel', '38'),
-(32, 30, 'ESPADRILLE FLATFORM SLIP-ONS', 600000, 1, 7, 'product_1491995964_2016-L2-CK1-80190043-01-3-500.jpg', 'CK1-80190043_BROWN', 'Black', '37');
+(32, 30, 'ESPADRILLE FLATFORM SLIP-ONS', 600000, 1, 7, 'product_1491995964_2016-L2-CK1-80190043-01-3-500.jpg', 'CK1-80190043_BROWN', 'Black', '37'),
+(33, 31, 'BASIC PENNY LOAFERS', 600000, 1, 8, 'product_1491999897_2017-L3-CK1-70380574-23-3.jpg', 'CK1-70380574_YELLOW', 'Black', '37'),
+(34, 32, 'BASIC PENNY LOAFERS', 600000, 1, 8, 'product_1491999897_2017-L3-CK1-70380574-23-3.jpg', 'CK1-70380574_YELLOW', 'Black', '37'),
+(35, 33, 'ANKLE BOOT HEELS', 800000, 1, 3, 'product_1491311946_2016-L7-SL1-90300043-01-5.jpg', 'CK1-90280010_CAMEL', 'Black', '37'),
+(36, 34, 'ANKLE BOOT HEELS', 900000, 1, 4, 'product_1491312032_2016-L7-SL1-90360039-01-5.jpg', 'CK1-90280010_CAMEL', 'Camel', '38'),
+(37, 35, 'ANKLE BOOT HEELS', 900000, 1, 4, 'product_1491312032_2016-L7-SL1-90360039-01-5.jpg', 'CK1-90280010_CAMEL', 'Black', '37'),
+(38, 36, 'ANKLE BOOT HEELS', 900000, 1, 4, 'product_1491312032_2016-L7-SL1-90360039-01-5.jpg', 'CK1-90280010_CAMEL', 'Black', '37'),
+(39, 37, 'BASIC PENNY LOAFERS', 600000, 1, 8, 'product_1491999897_2017-L3-CK1-70380574-23-3.jpg', 'CK1-70380574_YELLOW', 'Black', '37'),
+(40, 38, 'BASIC PENNY LOAFERS', 600000, 1, 8, 'product_1491999897_2017-L3-CK1-70380574-23-3.jpg', 'CK1-70380574_YELLOW', 'Black', '37'),
+(41, 39, 'BASIC PENNY LOAFERS', 600000, 1, 8, 'product_1491999897_2017-L3-CK1-70380574-23-3.jpg', 'CK1-70380574_YELLOW', 'Camel', '38');
 
 -- --------------------------------------------------------
 
@@ -903,7 +922,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `product_type_new` int(1) NOT NULL,
   `product_type_sale` int(1) NOT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `product`
@@ -965,7 +984,7 @@ CREATE TABLE IF NOT EXISTS `product_detail` (
 --
 
 INSERT INTO `product_detail` (`product_detail_id`, `color_id`, `product_id`, `product_detail_status`, `size_id`) VALUES
-(5, 4, 1, 1, ',4,3,2,'),
+(5, 4, 1, 0, ',4,3,2,'),
 (6, 2, 1, 1, ',5,4,2,'),
 (7, 4, 3, 1, ',5,4,3,1,'),
 (8, 2, 3, 1, ',5,4,3,2,'),
@@ -1136,14 +1155,15 @@ CREATE TABLE IF NOT EXISTS `template` (
   `template_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `template_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`template_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `template`
 --
 
 INSERT INTO `template` (`template_id`, `template_name`, `template_content`, `template_picture`, `template_url`, `template_type`) VALUES
-(3, 'Phần banner trang chủ', '', 'template_1491394749_Resilience-Banner.png', '', 'picture');
+(3, 'Phần banner trang chủ', '', 'template_1491394749_Resilience-Banner.png', '', 'picture'),
+(4, 'logo', '', 'template_1497110229_logo_600x.png', '', 'picture');
 
 -- --------------------------------------------------------
 
