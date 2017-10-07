@@ -6442,3 +6442,5 @@ ul.error-message li {
 div.captcha img {cursor: pointer}
 div.captcha ul {display: none}
 div.captcha ul.error-message {display: block}
+
+.product-picture-big {height: auto !important;}

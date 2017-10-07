@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 05, 2017 at 04:27 PM
+-- Generation Time: Oct 07, 2017 at 12:57 PM
 -- Server version: 5.5.57-cll
 -- PHP Version: 5.6.30
 
@@ -815,7 +815,8 @@ INSERT INTO `order` (`order_id`, `order_fullname`, `order_email`, `order_address
 (18, 'Hang Nga', 'hangnganguyen109@gmail.com', '172 Hai Ba Trung, Dakao', '906621324', '', 1, 760000, 20000, '2017-08-24 04:28:47', 'TA92718', '08:00', '18:00', 'Quận 1', 'Tiền mặt'),
 (19, 'Phùng Thị Trag', 'quynhtrangngyn@yahoo.com', '150/29 Huỳnh Tấn Phát,P.Tân Thuận Tây', '908769972', '', 1, 415000, 20000, '2017-08-28 12:46:47', 'MY40719', '08:00', '18:00', 'Quận 7', 'Tiền mặt'),
 (20, 'Phan thị khánh thy', 'Thykhanhacb@gmail.com', '14/48 đặng văn bình, p1, tp cao lãnh, đồng tháp ', '916905658', '', 0, 415000, 0, '2017-08-30 15:40:28', 'BF62820', '08:00', '18:00', 'Tỉnh thành khác', 'Chuyển khoản'),
-(21, 'Ha', 'jhvn108@yahoo.com', '119 Dien Bien Phu', '903317472', '', 1, 440000, 20000, '2017-08-31 03:07:46', 'GA86621', '08:00', '18:00', 'Quận 1', 'Tiền mặt');
+(21, 'Ha', 'jhvn108@yahoo.com', '119 Dien Bien Phu', '903317472', '', 1, 440000, 20000, '2017-08-31 03:07:46', 'GA86621', '08:00', '18:00', 'Quận 1', 'Tiền mặt'),
+(22, 'Vũ Châu', 'kimchaubk@hcmut.edu.vn', '142 Tô hiến thành', '0908269570', '', 0, 455000, 30000, '2017-10-04 14:10:46', 'FE24622', '09:00', '12:00', 'Quận 10', 'Tiền mặt');
 
 -- --------------------------------------------------------
 
@@ -863,7 +864,8 @@ INSERT INTO `order_detail` (`order_detail_id`, `order_id`, `product_name`, `prod
 (20, 18, 'Sandal SDL1108', 405000, 1, 126, 'product_1498402241_SDL1108BR-405.jpg', 'SDL1108', 'Màu Xám GR', '35'),
 (21, 19, 'Giày Đế Xuồng XNT1110', 395000, 1, 189, 'product_1498403179_465A7399.jpg', 'XNT1110', 'Màu Đen BA', '35'),
 (22, 20, 'Giày Đế Xuồng XT1019', 415000, 1, 40, 'product_1498797633_465A7419.jpg', 'XT1019', 'Màu Nâu BR', '35'),
-(23, 21, 'Giày Cao Gót BNK52182', 420000, 1, 197, 'product_1504064376_IMG_9520.jpg', 'BNK52182', 'Màu Đen Bóng BAB', '36');
+(23, 21, 'Giày Cao Gót BNK52182', 420000, 1, 197, 'product_1504064376_IMG_9520.jpg', 'BNK52182', 'Màu Đen Bóng BAB', '36'),
+(24, 22, 'Giày Cao Gót BNN71078', 425000, 1, 97, 'product_1497603590_BNN71078RE.jpg', 'BNN71078', 'Màu Đỏ RE', '36');
 
 -- --------------------------------------------------------
 
@@ -916,7 +918,7 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_code`, `product_pr
 (6, 'Búp Bê BBL1115', 'BBL1115', 390000, '<p>- Chất liệu : Da tổng hợp c&oacute; bắn laser</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497607030_THVU6909.jpg', 2, 0, 1, 0),
 (7, 'Búp Bê BBN1042', 'BBN1042', 495000, '<p>- Chất liệu : Da b&ograve; thật</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497697030_BBN1042BA.jpg', 2, 0, 1, 0),
 (8, 'Búp Bê BBN1067', 'BBN1067', 335000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497602544_BBN1067NU.jpg', 2, 0, 1, 0),
-(9, 'Búp Bê BBN1068', 'BBN1068', 335000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497602599_BBN1068GO-355.jpg', 2, 0, 1, 0),
+(9, 'Búp Bê BBN1068', 'BBN1068', 355000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497602599_BBN1068GO-355.jpg', 2, 0, 1, 0),
 (10, 'Búp Bê BBN1100', 'BBN1100', 365000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497605790_BBN1100NU.jpg', 2, 0, 1, 0),
 (11, 'Búp Bê BBN1111', 'BBN1111', 395000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497606791_BBN1111LB.jpg', 2, 0, 1, 0),
 (12, 'Búp Bê BBN1112', 'BBN1112', 390000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Loại g&oacute;t : Đế bệt</p>', 1, 'product_1497606841_bbn1112YE.jpg', 2, 0, 1, 0),
@@ -1085,7 +1087,7 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_code`, `product_pr
 (188, 'Sandals SDD1136', 'SDD1136', 425000, '<p>- Chất liệu : Da nỉ</p>\r\n<p>- Cao g&oacute;t : 5 cm</p>\r\n<p>- Loại g&oacute;t : G&oacute;t vu&ocirc;ng</p>', 1, 'product_1498670883_465A7537.jpg', 3, 0, 1, 0),
 (189, 'Giày Đế Xuồng XNT1110', 'XNT1110', 395000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Cao g&oacute;t : 7 cm</p>\r\n<p>- Loại g&oacute;t : Đế xuồng</p>', 1, 'product_1498403179_465A7399.jpg', 4, 0, 1, 0),
 (190, 'Sandals SDT1040', 'SDT1040', 400000, '<p>- Chất liệu : Da tổng hợp</p>\r\n<p>- Cao g&oacute;t : 7 cm</p>\r\n<p>- Loại g&oacute;t : G&oacute;t trụ</p>', 1, 'product_1498808378_465A7501.jpg', 3, 0, 1, 0),
-(191, 'Giày Cao Gót BNK72183', 'BNK72183', 465, '', 1, 'product_1504063212_IMG_9486.jpg', 1, 0, 1, 0),
+(191, 'Giày Cao Gót BNK72183', 'BNK72183', 465000, '', 1, 'product_1504063212_IMG_9486.jpg', 1, 0, 1, 0),
 (192, 'Giày Cao Gót BNH52180', 'BNH52180', 425000, '', 1, 'product_1504063655_IMG_9490.jpg', 1, 0, 1, 0),
 (193, 'Giày Cao Gót BNN72177', 'BNN72177', 435000, '', 1, 'product_1504063843_IMG_9504.jpg', 1, 0, 1, 0),
 (194, 'Giày Cao Gót BNN71175', 'BNN71175', 415000, '', 1, 'product_1504064023_IMG_9512.jpg', 1, 0, 1, 0),
@@ -5696,12 +5698,12 @@ ALTER TABLE `news_category`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `page`
 --
