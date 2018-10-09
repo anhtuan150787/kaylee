@@ -177,3 +177,9 @@
 [17-Apr-2017 16:38:04 UTC] PHP Warning:  ini_set() has been disabled for security reasons in /home/kayleevn/public_html/public/index.php on line 1
 [17-Apr-2017 23:24:41 UTC] PHP Warning:  ini_set() has been disabled for security reasons in /home/kayleevn/public_html/public/index.php on line 1
 [18-Apr-2017 01:14:34 UTC] PHP Warning:  ini_set() has been disabled for security reasons in /home/kayleevn/public_html/public/index.php on line 1
+[04-Dec-2017 05:06:20 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/alt/php56/usr/lib64/php/modules/intl.so' - libicui18n.so.57: failed to map segment from shared object: Cannot allocate memory in Unknown on line 0
+[23-Jan-2018 05:39:36 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/alt/php56/usr/lib64/php/modules/mysql.so' - libmysqlclient.so.18: failed to map segment from shared object: Cannot allocate memory in Unknown on line 0
+[23-Jan-2018 05:39:36 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/alt/php56/usr/lib64/php/modules/phar.so' - out of memory: Cannot allocate memory in Unknown on line 0
+[29-Jan-2018 14:58:06 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/alt/php56/usr/lib64/php/modules/gd.so' - libX11.so.6: failed to map segment from shared object: Cannot allocate memory in Unknown on line 0
+[03-Feb-2018 04:11:14 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/alt/php56/usr/lib64/php/modules/gd.so' - libvpx.so.1: cannot map zero-fill pages: Cannot allocate memory in Unknown on line 0
+[28-Jun-2018 03:12:03 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/alt/php56/usr/lib64/php/modules/mcrypt.so' - libmcrypt.so.4: cannot map zero-fill pages: Cannot allocate memory in Unknown on line 0
